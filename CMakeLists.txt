@@ -16,4 +16,4 @@ enable_testing()
 add_executable(test_cache sources/main.cpp)
 add_executable(test_cache sources/filesystem.cpp)
 
-add_test(NAME ${PROJECT_NAME} COMMAND test_cache)
+add_test(NAME ${PROJECT_NAME} COMMAND test_filesystem)
