@@ -14,6 +14,6 @@ include_directories(include)
 enable_testing()
 
 add_executable(test_filesystem sources/main.cpp)
-add_executable(test_filesystem sources/filesystem.cpp)
+
 
 add_test(NAME ${PROJECT_NAME} COMMAND test_filesystem)
