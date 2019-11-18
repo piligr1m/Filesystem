@@ -1,27 +1,16 @@
 cmake_minimum_required(VERSION 2.8)
 
 project(CH CXX)
-hunter_add_package(Boost COMPONENTS system filesystem)
-find_package(Boost CONFIG REQUIRED system filesystem)
-add_library(filesys INTERFACE)
-if (MSVC)
-    add_definitions(/W4)
-else()
-    add_definitions(-Wall)
-    add_definitions(-std=c++11)
+set(Boost_USE_STATIC_LIBS OFF) 
+set(Boost_USE_MULTITHREADED ON)  
+set(Boost_USE_STATIC_RUNTIME OFF) 
+find_package(Boost 1.45.0 COMPONENTS filesystem regex) 
+
+if(Boost_FOUND)
+    include_directories(${Boost_INCLUDE_DIRS})
+    include_directories(include) 
+add_executable(test_filesystem sources/main.cpp)
+    target_link_libraries(progname ${Boost_LIBRARIES})
 endif()
 
-include_directories(include)
 
-enable_testing()
-
-add_executable(test_filesystem sources/main.cpp)
-
-target_include_directories(
-filesys
-INTERFACE $<BUILD_INTERFACE:${${PROJECT_NAME}_SOURCE_DIR}/include>
-$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>)
-
-target_link_libraries(filesys INTERFACE Boost::filesystem)
-target_link_libraries(main filesys)
-add_test(NAME ${PROJECT_NAME} COMMAND test_filesystem)
