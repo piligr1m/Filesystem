@@ -9,7 +9,7 @@
 #include "filesystem.hpp"
 #include <algorithm>
 #include <exception>
-#include <regex>
+#include <boost/regex.hpp>
 
 directory::directory(std::string path)
     : my_path(path)
