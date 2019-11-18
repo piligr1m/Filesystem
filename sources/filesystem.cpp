@@ -1,11 +1,3 @@
-//
-//  filesystem.cpp
-//  LW4
-//
-//  Created by Stanislav Martynov on 03/11/2019.
-//  Copyright © 2019 Stanislav Martynov. All rights reserved.
-//
-
 #include "filesystem.hpp"
 #include <algorithm>
 #include <exception>
@@ -24,7 +16,7 @@ void directory::Check_path()
     }
     for (const std::filesystem::directory_entry& x : fs::directory_iterator{my_path})
         {
-            chek_path(x.path());
+            type_path(x.path());
         }
 }
 void directory::type_path(fs::path value)
@@ -47,7 +39,7 @@ void directory::type_path(fs::path value)
     {
         for (const fs::directory_entry& x : fs::directory_iterator{value})
         {
-            check_path(x.path());
+            type_path(x.path());
         }
     }
    else if (is_symlink(value))
@@ -56,7 +48,7 @@ void directory::type_path(fs::path value)
             fs::read_symlink(dir);
             if(!dir.empty())
             {
-                check_path(dir);
+                type_path(dir);
             }
         }
         else
@@ -104,7 +96,7 @@ std::string directory::get_brocker_name(boost::filesystem::path &dir)
 
     return std::string();
 }
-void dirparser::print_info()
+void directory::print_info()
 {
     for (auto& brocker : m_brockers)
     {
