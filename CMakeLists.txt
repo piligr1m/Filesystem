@@ -12,7 +12,7 @@ if(Boost_FOUND)
     enable_testing()
 add_executable(test_filesystem sources/main.cpp)
     target_link_libraries(progname ${Boost_LIBRARIES})
-    add_test(NAME ${PROJECT_NAME} COMMAND test_shared)
+    add_test(NAME ${PROJECT_NAME} COMMAND test_filesystem)
 endif()
 
 
