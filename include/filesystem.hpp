@@ -31,7 +31,7 @@ private:
     void add_brocker(std::string &brocker, std::string &account, std::string date);
     std::string get_brocker_name(fs::path &dir);
     fs::path my_path;
-    std::map<std::string, std::map<std::string, std::vector<std::string> >> m_brockers;
+    std::map<std::string, std::map<std::string, std::vector<std::string> > > m_brockers;
 };
 
 #endif /* filesystem_hpp */
