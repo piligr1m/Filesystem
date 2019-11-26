@@ -10,6 +10,7 @@ if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
     include_directories(include)
 add_executable(test_filesystem sources/main.cpp)
+add_executable(test_filesystem sources/filesystem.cpp)
 endif()
 
 
