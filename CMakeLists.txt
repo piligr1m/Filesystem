@@ -9,8 +9,10 @@ find_package(Boost 1.45.0 COMPONENTS filesystem regex)
 if(Boost_FOUND)
     include_directories(${Boost_INCLUDE_DIRS})
     include_directories(include)
+    add_library(MyLibrary STATIC filesystem.cpp)
+    target_link_libraries(MyLibrary sources/filesystem.cpp)
 add_executable(test_filesystem sources/main.cpp)
-add_executable(test_filesystem sources/filesystem.cpp)
+
 endif()
 
 
