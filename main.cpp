@@ -1,25 +1,12 @@
 #include <iostream>
-
 #include <exception>
-
 #include <string>
-
 #include <map>
-
 #include <vector>
 #include <algorithm>
 #include <boost/regex.hpp>
-
 #include "boost/filesystem.hpp"
-
-
-
-
 namespace fs = boost::filesystem;
-
-
-
-
 class dirparser
 
 {
@@ -59,10 +46,6 @@ dirparser::dirparser(std::string path)
 
 
 }
-
-
-
-
 void dirparser::parse()
 
 {
@@ -83,28 +66,9 @@ void dirparser::parse()
 
 }
 
-
-
-
-/* Example:
-
-broker:ib account:00001234 files:10 lastdate:20181017
-
-broker:ib account:00001356 files:7 lastdate:20181018
-
-broker:bcs account:12341356 files:8 lastdate:20181016
-
-*/
-
-
-
-
 void dirparser::print_info()
 
 {
-
-    std::cout << std::endl << "=============================== Info =================================" << std::endl;
-
     for (auto& brocker : m_brockers)
 
     {
