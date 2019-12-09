@@ -281,7 +281,7 @@ int main(int argc, char *argv[])
 //
  //   }
 
-    try {
+    /*try {
 
         dirparser parser(argv[1]);
 
@@ -308,7 +308,12 @@ int main(int argc, char *argv[])
 
     std::cin.get();
 
-    return 0;
+    return 0;*/
+    if (argc <2)
+{
+p = new path (current_path());
+}
+else p = new path (argv[1]);
 
 }
 
