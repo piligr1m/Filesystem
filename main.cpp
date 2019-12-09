@@ -50,11 +50,11 @@ void dirparser::parse()
 
 {
 
-    if (!fs::exists(m_path)){
+   // if (!fs::exists(m_path)){
 
-        throw std::exception("path is not exists");
+    //    throw std::exception("path is not exists");
 
-    }
+  //  }
 
     for (const fs::directory_entry& x : fs::directory_iterator{m_path})
 
@@ -166,13 +166,13 @@ void dirparser::check_path(fs::path value)
 
     }
 
-    else
+   // else
 
-    {
+    //{
 
-        throw std::exception("incorrect object");
+    //    throw std::exception("incorrect object");
 
-    }
+   // }
 
 }
 
