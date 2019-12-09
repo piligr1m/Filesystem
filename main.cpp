@@ -309,6 +309,7 @@ int main(int argc, char *argv[])
     std::cin.get();
 
     return 0;*/
+    path* p;
     if (argc <2)
 {
 p = new path (current_path());
