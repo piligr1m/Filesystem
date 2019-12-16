@@ -14,8 +14,8 @@ install:
   - if [ "$CXX" = "clang++" ]; then export CXX="clang++-3.7" CC="clang-3.7"; fi
   - mkdir build
   - cd build
-  - cmake ..
-  - make
+  - cmake .
+  - cmake --build ./
 
 script:
   - ctest -V
