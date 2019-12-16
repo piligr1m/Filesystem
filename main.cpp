@@ -48,6 +48,8 @@ dirparser::dirparser(std::string path)
 }
 void dirparser::parse()
 {
+    if (!fs::exists(m_path)){
+        throw std::exception("path is not exists");
     for (const fs::directory_entry& x : fs::directory_iterator{m_path})
     {
         check_path(x.path());
@@ -132,6 +134,10 @@ std::string dirparser::get_brocker_name(boost::filesystem::path &dir)
 }
 int main(int argc, char *argv[])
 {
+    if (argc < 2){
+        std::cerr << "error" << std::endl;
+        return 1;
+    }
     try {
         dirparser parser(argv[1]);
         parser.parse();
